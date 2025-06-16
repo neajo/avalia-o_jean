@@ -89,21 +89,3 @@ body {
     opacity: 1;
   }
 }
-
-/* ==== ✅ Logo Barbosa Ferraz (pequena discreta no topo) ==== */
-.logo-barbosa {
-  position: fixed;
-  top: 10px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 20;
-  background: transparent;
-  padding: 0;
-  margin: 0;
-}
-
-.logo-barbosa img {
-  height: 15px; /* Mini mesmo! */
-  object-fit: contain;
-  opacity: 0.7;
-}
