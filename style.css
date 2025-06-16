@@ -1,63 +1,61 @@
-/* Reset básico */
+/* Reset */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Corpo da página */
 body {
   font-family: 'Orbitron', sans-serif;
   color: #00ffc3;
-  overflow: hidden;
-  height: 100vh;
-  width: 100vw;
-  position: relative;
+  background-color: #000;
+  overflow-x: hidden;
 }
 
-/* Vídeo de fundo */
-#video-fundo {
+/* Logo */
+.logo-barbosa {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: -1;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+}
+.logo-barbosa img {
+  height: 15px;
+  opacity: 0.7;
 }
 
-/* Container central */
+/* Página inicial */
+.pagina-inicial {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle, #111 30%, #000);
+}
+
 .container {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
   text-align: center;
-  z-index: 2;
   padding: 30px;
   background: rgba(0, 0, 0, 0.5);
-  border-radius: 15px;
+  border-radius: 20px;
   box-shadow: 0 0 20px #00ffc3;
 }
 
-/* Título principal */
 .titulo {
   font-size: 3em;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
   color: #00ffc3;
-  text-shadow: 0 0 8px #00ffc3;
 }
 
-/* Subtexto */
 .subtexto {
   font-size: 1.2em;
   margin-bottom: 30px;
-  color: #ffffffcc;
+  color: #ccc;
 }
 
-/* Botão neon */
 .botao.neon {
-  background-color: transparent;
+  background: transparent;
   color: #00ffc3;
   padding: 12px 28px;
   border: 2px solid #00ffc3;
@@ -67,25 +65,60 @@ body {
   transition: 0.3s ease;
   box-shadow: 0 0 10px #00ffc3, 0 0 20px #00ffc3 inset;
 }
-
 .botao.neon:hover {
   background-color: #00ffc3;
   color: #000;
   box-shadow: 0 0 20px #00ffc3, 0 0 30px #00ffc3 inset;
 }
 
-/* Animação de entrada */
-.animar-entrada {
-  animation: flutuar 2s ease-in-out;
+/* Página sobre */
+.pagina-sobre {
+  min-height: 100vh;
+  background: linear-gradient(120deg, #000, #0f0f0f);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  color: #00ffc3;
 }
 
+.container-sobre {
+  max-width: 600px;
+  text-align: center;
+  background-color: #111;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 0 25px #00ffc3;
+}
+
+.foto-jean {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  margin-bottom: 20px;
+  object-fit: cover;
+  box-shadow: 0 0 15px #00ffc3;
+}
+
+a {
+  color: #00ffc3;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+/* Animação */
+.animar-entrada {
+  animation: flutuar 1.5s ease-in-out;
+}
 @keyframes flutuar {
   0% {
-    transform: translate(-50%, -60%);
     opacity: 0;
+    transform: translateY(-20px);
   }
   100% {
-    transform: translate(-50%, -50%);
     opacity: 1;
+    transform: translateY(0);
   }
 }
