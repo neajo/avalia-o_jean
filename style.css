@@ -1,74 +1,138 @@
+/* Reset e base */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Segoe UI', sans-serif;
 }
 
 body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  font-family: 'Orbitron', sans-serif;
+  background: #0d0d0d;
   color: white;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
 }
 
+/* Fundo animado neon */
+body::before {
+  content: "";
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(135deg, #00ffc8, #2c00ff, #ff0077);
+  background-size: 600% 600%;
+  animation: fundoAnimado 20s ease infinite;
+  z-index: -2;
+  filter: blur(40px);
+  opacity: 0.15;
+}
+
+@keyframes fundoAnimado {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Container principal */
 .container {
+  background: rgba(0, 0, 0, 0.75);
+  padding: 50px 30px;
+  border-radius: 25px;
+  box-shadow: 0 0 30px #00ffc8;
   text-align: center;
-  padding: 40px;
-  background: rgba(0, 0, 0, 0.6);
-  border-radius: 20px;
-  box-shadow: 0 0 20px #00ffcc;
-  max-width: 500px;
+  max-width: 600px;
+  width: 90%;
+  backdrop-filter: blur(10px);
+  animation: surgir 1.2s ease forwards;
+  transform: translateY(30px);
+  opacity: 0;
+}
+
+@keyframes surgir {
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 
 h1 {
-  font-size: 3em;
-  margin-bottom: 20px;
+  font-size: 3rem;
   color: #00ffc8;
-  text-shadow: 2px 2px 8px black;
+  text-shadow: 0 0 10px #00ffc8, 0 0 30px #00ffc8;
+  margin-bottom: 20px;
 }
 
-.subtexto, .descricao {
-  font-size: 1.2em;
+/* Descrição estilizada */
+.descricao {
+  font-size: 1.2rem;
+  line-height: 1.8;
   margin-bottom: 30px;
-  line-height: 1.6;
+  color: #ddd;
 }
 
-a.botao {
-  display: inline-block;
-  padding: 15px 30px;
-  font-size: 1em;
-  background-color: #00ffc8;
-  color: #000;
-  border-radius: 30px;
-  text-decoration: none;
-  transition: transform 0.3s, background 0.3s;
+.descricao a {
+  color: #00ffc8;
   font-weight: bold;
+  text-decoration: none;
+  transition: color 0.3s ease;
 }
 
-a.botao:hover {
-  background-color: #00bfa6;
-  transform: scale(1.05);
+.descricao a:hover {
+  color: #ffffff;
+  text-shadow: 0 0 8px #00ffc8;
 }
 
+/* Foto com estilo */
 .foto-perfil {
   width: 200px;
   height: 200px;
   object-fit: cover;
   border-radius: 50%;
   border: 5px solid #00ffc8;
-  box-shadow: 0 0 20px #00ffc8;
-  margin-bottom: 20px;
+  box-shadow: 0 0 25px #00ffc8, 0 0 40px #00ffc8 inset;
+  margin-bottom: 25px;
+  transition: transform 0.4s;
+}
+
+.foto-perfil:hover {
+  transform: scale(1.05);
+}
+
+/* Botão neon */
+a.botao {
+  display: inline-block;
+  padding: 15px 30px;
+  border-radius: 30px;
+  font-weight: bold;
+  background: transparent;
+  border: 2px solid #00ffc8;
+  color: #00ffc8;
+  box-shadow: 0 0 10px #00ffc8, 0 0 20px #00ffc8;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+a.botao:hover {
+  background-color: #00ffc8;
+  color: black;
+  box-shadow: 0 0 30px #00ffc8, 0 0 60px #00ffc8;
+  transform: scale(1.05);
 }
 
 a.voltar {
-  margin-top: 30px;
-  background-color: #ff5e57;
-  color: white;
+  margin-top: 25px;
+  background-color: transparent;
+  border: 2px solid #ff5e57;
+  color: #ff5e57;
+  box-shadow: 0 0 10px #ff5e57, 0 0 20px #ff5e57;
 }
 
 a.voltar:hover {
-  background-color: #e0473f;
+  background-color: #ff5e57;
+  color: white;
+  box-shadow: 0 0 30px #ff5e57, 0 0 60px #ff5e57;
 }
